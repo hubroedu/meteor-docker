@@ -1,7 +1,7 @@
-zodern/meteor Docker Image
+clone of hubroedu/meteor Docker Image
 ===
 
-Docker image to run Meteor apps.
+Docker image to run Meteor apps. Includes datadog plugin.
 
 ### Features
 
@@ -12,9 +12,7 @@ Docker image to run Meteor apps.
 
 ## Tags
 
-- `zodern/meteor`
-- `zodern/meteor:root` Compatible with meteord. Runs the app as the root user and has phantomjs installed. Notes below about permissions do not apply to this image.
-- `zodern/meteor:slim` Coming soon. Is a smaller image without node or npm pre-installed. During ONBUILD or when starting the app, it will install the correct version.
+- `hubroedu/meteor:root` Compatible with meteord. Runs the app as the root user and has phantomjs installed. Notes below about permissions do not apply to this image.
 
 ## How To Use
 
@@ -24,7 +22,7 @@ This image runs the app with the `app` user. The owner of any files or folders y
 
 ### Meteor Up
 
-In your mup config, change `app.docker.image` to `zodern/meteor`.
+In your mup config, change `app.docker.image` to `hubroedu/meteor`.
 
 ### Compressed bundle
 
@@ -35,7 +33,7 @@ You can create the bundle with the `meteor build` command. The bundle should be 
 Create a file named `Dockerfile` and add the following:
 
 ```Dockerfile
-FROM zodern/meteor
+FROM hubroedu/meteor
 COPY --chown=app:app ../path/to/bundle.tar.gz /bundle/bundle.tar.gz
 ```
 
@@ -55,7 +53,7 @@ The `--build-arg NODE_VERSION=<node version>` is optional, and only needed if a 
 Run
 
 ```bash
-  docker run --name my-meteor-app -v /path/to/folder/with/bundle:/bundle -p 3000:3000 -e "ROOT_URL=http://app.com" zodern/meteor
+  docker run --name my-meteor-app -v /path/to/folder/with/bundle:/bundle -p 3000:3000 -e "ROOT_URL=http://app.com" hubroedu/meteor
 ```
 
 ### Built app
@@ -73,7 +71,7 @@ The bundle should be available in the container at `/built_app`.
 Create a file named `Dockerfile` and copy the following into it:
 
 ```Dockerfile
-FROM zodern/meteor
+FROM hubroedu/meteor
 COPY --chown=app:app ./path/to/bundle /built_app
 RUN cd /built_app/programs/server && npm install
 ```
@@ -100,7 +98,7 @@ npm install
 Next, start the docker container with
 
 ```bash
-docker run --name my-meteor-app -v /path/to/bundle:/built_app -p 3000:3000 -e "ROOT_URL=http://app.com" zodern/meteor
+docker run --name my-meteor-app -v /path/to/bundle:/built_app -p 3000:3000 -e "ROOT_URL=http://app.com" hubroedu/meteor
 ```
 
 ### Options

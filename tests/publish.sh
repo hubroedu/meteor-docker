@@ -3,14 +3,14 @@ VERSION="$1"
 docker login -p $DOCKER_PASSWORD -u $DOCKER_USERNAME
 
 # Normal image
-docker tag zodern/meteor zodern/meteor:latest
-docker tag zodern/meteor zodern/meteor:$VERSION
+docker tag hubroedu/meteor hubroedu/meteor:latest
+docker tag hubroedu/meteor hubroedu/meteor:$VERSION
 
-docker push zodern/meteor:latest
-docker push zodern/meteor:$VERSION
+docker push hubroedu/meteor:latest
+docker push hubroedu/meteor:$VERSION
 
 # root image
-docker tag zodern/meteor:root zodern/meteor:$VERSION-root
+docker tag hubroedu/meteor:root hubroedu/meteor:$VERSION-root
 
-docker push zodern/meteor:root
-docker push zodern/meteor:$VERSION-root
+docker push hubroedu/meteor:root
+docker push hubroedu/meteor:$VERSION-root

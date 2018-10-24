@@ -1,3 +1,5 @@
+DD_API_KEY="$DATADOG_API_KEY" bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/master/cmd/agent/install_script.sh)"
+
 change_user () {
     HOST_UID=$(stat -c %u $PWD)
     HOST_GUID=$(stat -c %g $PWD)

@@ -1,7 +1,7 @@
 FROM debian:stretch-slim
-LABEL maintainer="zodern"
-RUN apt-get update && \
-  apt-get install -y curl python make g++ bzip2 ca-certificates --no-install-recommends && \
+LABEL maintainer="hubroedu"
+
+RUN apt-get update && apt-get install -y curl python make g++ bzip2 ca-certificates --no-install-recommends && \
   rm -rf /var/lib/apt/lists/*
 
 RUN useradd --create-home --shell /bin/bash --uid 1000 --user-group app
@@ -18,6 +18,7 @@ USER app
 WORKDIR /home/app
 RUN mkdir scripts && mkdir setup
 COPY ./setup ./setup
+
 RUN bash setup/install_nvm.sh
 
 COPY ./scripts ./scripts
