@@ -9,7 +9,7 @@
     "eslint": "eslint",
     "release": "bash ./tests/prepare-release.sh",
     "semantic-release": "semantic-release",
-    "travis-deploy-once": "travis-deploy-once"
+    "travis-deploy-once": "travis-deploy-once --pro"
   },
   "repository": {
     "type": "git",

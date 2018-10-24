@@ -161,12 +161,12 @@ test_version() {
 test_versions() {
   echo "--- Testing Docker Image $DOCKER_IMAGE ---"
 
-  test_version "--release=1.2.1"
-  test_version "--release=1.3.5.1"
+  # test_version "--release=1.2.1"
+  # test_version "--release=1.3.5.1"
   # test_version "--release=1.4"
   # test_version "--release=1.4.4.5"
-  test_version "--release=1.5.4.1"
-  test_version "--release=1.6"
+  # test_version "--release=1.5.4.1"
+  # test_version "--release=1.6"
   test_version "--release=1.7.0.5"
 
   # Latest version
